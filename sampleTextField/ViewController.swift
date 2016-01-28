@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var myLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +21,26 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBOutlet weak var myTextField: UITextField!
 
+    @IBAction func tapReturn(sender: UITextField) {
+        
+        print(myTextField.text)
+        
+        // TODO:ラベルを用意してtestと言う字が含まれていたら「testです」とラベルに表示、それ以外は入力された字をそのまま表示しましょう
+        
+        //ヒント
+        var str:String! = myTextField.text
+        if let r = str.rangeOfString("test") {
+            print("見つかった")
+            myLabel.text = "testです"
+        } else {
+            print("見つからない")
+            myLabel.text = myTextField.text
+        }
+    }
+    @IBAction func btnTap(sender: UIButton) {
+        myTextField.resignFirstResponder()
+    }
 }
 
